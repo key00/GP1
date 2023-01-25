@@ -14,7 +14,7 @@ include("includes/db.php");
 
 <!-- section form start -->
 <section class="container">
-  <form action="register.php" method="post" class="login-form">
+  <form action="register.php" method="post" id="register" class="login-form">
 
     <p>Already have an account? <a href="signin.php" class="signin-link">SIGN IN</a></p>
     <div class="row form-row mt-3">
@@ -54,7 +54,8 @@ include("includes/db.php");
       </div>
       <div class="col-md-6">
         <label for="telephone"> Your phone number </label>
-        <input class="form-control" type="tel" name="telephone" id="phone_number" placeholder="Your phone number" required />
+        <input type="hidden" name="dialCode" id="dialCode">
+        <input class="form-control" type="text" name="telephone[main]" id="phone_number" placeholder="Your phone number" required />
       </div>
     </div>
     <div class="row form-row mt-3">
@@ -107,7 +108,7 @@ if (isset($_POST['register'])) {
   $username = $_POST['username'];
   $uemail = $_POST['email'];
   $upassword = $_POST['password'];
-  $phone = $_POST['telephone'];
+  $phone = $_POST['telephone']['full'];
   $ucountry = $_POST['country'];
   $ucity = $_POST['city'];
   $ustreet = $_POST['street'];

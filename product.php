@@ -12,10 +12,10 @@ if (isset($_GET['pro_id'])) {
     $run_product = mysqli_query($con, $get_product);
     $row_product = mysqli_fetch_array($run_product);
     $cat_id = $row_product['cat_id'];
-    $pro_name = $row_product['pro_name'];
-    $pro_price = $row_product['price'];
-    $pro_desc = $row_product['description'];
-    $pro_img1 = $row_product['product_img1'];
+    $prod_name = $row_product['pro_name'];
+    $prod_price = $row_product['price'];
+    $prod_desc = $row_product['description'];
+    $prod_img1 = $row_product['product_img1'];
     $pro_img2 = $row_product['product_img2'];
     $get_cat = "select * from categories where cat_id='$cat_id'";
     $run_cat = mysqli_query($con, $get_cat);
