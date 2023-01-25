@@ -106,24 +106,23 @@ function product_per_category()
 function add_to_cart()
 {
     global $db;
-    if (isset($_SESSION['username'])) {
-        if (isset($_GET['add_to_cart'])) {
-            $user = $_SESSION['username'];
-            $p_id = $_GET['add_to_cart'];
-            $quantity = $_POST['pro_quantity'];
-            $check_product = " select * from cart where p_id=$p_id ";
-            $run_check = mysqli_query($db, $check_product);
 
-            if (mysqli_num_rows($run_check) > 0) {
+    if (isset($_GET['add_to_cart'])) {
+        $user = $_SESSION['username'];
+        $p_id = $_GET['add_to_cart'];
+        $quantity = $_POST['pro_quantity'];
+        $check_product = " select * from cart where p_id=$p_id ";
+        $run_check = mysqli_query($db, $check_product);
 
-                echo "<script>alert(Already in cart!)</script>";
-                echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
-            } else {
+        if (mysqli_num_rows($run_check) > 0) {
 
-                $query = "insert into cart (username,p_id,quantity) values ('$user',' $p_id ',' $quantity ')";
-                $run_query = mysqli_query($db, $query);
-                echo "<script>window.open(' cart.php',' _self ')</script>";
-            }
+            echo "<script>alert(Already in cart!)</script>";
+            echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
+        } else {
+
+            $query = "insert into cart (username,p_id,quantity) values ('$user',' $p_id ',' $quantity ')";
+            $run_query = mysqli_query($db, $query);
+            echo "<script>window.open(' cart.php',' _self ')</script>";
         }
     }
 }

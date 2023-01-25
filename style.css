@@ -258,3 +258,15 @@ form {
 .signin-link {
   text-decoration: underline 2px #48b88b;
 }
+
+.cat-box {
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cat-title {
+  font-size: 20px;
+  text-align: center;
+}

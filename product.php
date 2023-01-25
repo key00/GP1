@@ -1,11 +1,11 @@
 <?php
+$active = 'Shop';
 include("includes/header.php");
 ?>
 
 <?php
 
 global $con;
-
 if (isset($_GET['pro_id'])) {
     $pro_id = $_GET['pro_id'];
     $get_product = "select * from product where pro_id='$pro_id'";

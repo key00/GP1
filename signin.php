@@ -33,36 +33,36 @@ include("includes/header.php");
     </center>
 
   </form>
-
-  <?php
-  if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $user_pass = $_POST['password'];
-
-    $get_user = "select * from users where username='$username' and password='$user_pass'";
-    $run_user = mysqli_query($con, $get_user);
-    $check_user = mysqli_num_rows($run_user);
-
-    $get_cart = "select * from cart where username='$username'";
-    $run_cart = mysqli_query($con, $get_cart);
-    $check_cart = mysqli_num_rows($run_cart);
-
-    if ($check_user == 0) {
-      echo "<h5 class='text-center'> username or password is wrong! </h5>";
-    } elseif ($check_user == 1 and $username == 'admin') {
-      session_start();
-      $_SESSION['username'] = $username;
-      echo "<script>alert('Welcome admin')</script>";
-      echo "<script>window.open('admin/insert_product.php','_self')</script>";
-    } else {
-      session_start();
-      $_SESSION['username'] = $username;
-      echo "<script>alert('Login successful')</script>";
-      echo "<script>window.open('shop.php','_self')</script>";
-    }
-  }
-  ?>
 </div>
+<?php
+if (isset($_POST['login'])) {
+  $username = $_POST['username'];
+  $user_pass = $_POST['password'];
+
+  $get_user = "select * from users where username='$username' and password='$user_pass'";
+  $run_user = mysqli_query($con, $get_user);
+  $check_user = mysqli_num_rows($run_user);
+
+  $get_cart = "select * from cart where username='$username'";
+  $run_cart = mysqli_query($con, $get_cart);
+  $check_cart = mysqli_num_rows($run_cart);
+
+  if ($check_user == 0) {
+    echo "<h5 class='text-center'> username or password is wrong! </h5>";
+  } elseif ($check_user == 1 and $username == 'admin') {
+    session_start();
+    $_SESSION['username'] = $username;
+    echo "<script>alert('Welcome admin')</script>";
+    echo "<script>window.open('admin/insert_product.php','_self')</script>";
+  } else {
+    session_start();
+    $_SESSION['username'] = $username;
+    echo "<script>alert('Login successful')</script>";
+    echo "<script>window.open('shop.php','_self')</script>";
+  }
+}
+?>
+
 
 <?php
 include("includes/footer.php")
