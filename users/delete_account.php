@@ -12,6 +12,9 @@
 global $con;
 if (isset($_POST['yes'])) {
     $user = $_SESSION['username'];
+    $empty_cart = "delete from cart where username='$user'";
+    $run_empty_cart = mysqli_query($con, $empty_cart);
+
     $delete_user = "delete from users where username='$user'";
     $run_delete = mysqli_query($con, $delete_user);
     session_destroy();

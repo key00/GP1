@@ -58,8 +58,13 @@ if (isset($_GET['pro_id'])) {
                                                             ?>" method="post">
                         <label class="form-label"> Quantity: </label>
                         <input class="form-control" type="number" name="pro_quantity" placeholder="1" min="1" required>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "<button class='btn btn-secondary mt-3' type='submit'><span><i class='fa-solid fa-cart-shopping'></i></span> Add to cart</button>
+                        ";
+                        }
 
-                        <button class="btn btn-secondary mt-3" type="submit"><span><i class="fa-solid fa-cart-shopping"></i></span> Add to cart</button>
+                        ?>
                     </form>
 
                 </div>

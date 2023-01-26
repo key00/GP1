@@ -16,9 +16,6 @@
                 <li>
                     <a href="shop.php">Shop</a>
                 </li>
-                <li>
-                    <a href="home.php/#about">About</a>
-                </li>
                 <li class="<?php if (isset($_SESSION['username'])) echo "active-session";
                             ?>">
                     <a href="signin.php">Sign-in</a>

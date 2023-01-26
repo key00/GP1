@@ -111,17 +111,20 @@ function add_to_cart()
         $user = $_SESSION['username'];
         $p_id = $_GET['add_to_cart'];
         $quantity = $_POST['pro_quantity'];
-        $check_product = " select * from cart where p_id=$p_id ";
+        $check_product = " select * from cart where p_id=$p_id and username='$user'";
         $run_check = mysqli_query($db, $check_product);
 
         if (mysqli_num_rows($run_check) > 0) {
 
             echo "<script>alert(Already in cart!)</script>";
-            echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
+            echo "<script>window.open('shop.php','_self')</script>";
         } else {
 
             $query = "insert into cart (username,p_id,quantity) values ('$user',' $p_id ',' $quantity ')";
             $run_query = mysqli_query($db, $query);
+            if ($run_query) {
+                echo "<script>alert('Added to cart')</script>";
+            }
             echo "<script>window.open(' cart.php',' _self ')</script>";
         }
     }

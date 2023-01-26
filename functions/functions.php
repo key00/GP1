@@ -14,10 +14,10 @@ function getProducts()
         $pro_img1 = $row_product['product_img1'];
 
         echo "
-        <div class='col-sm-12 col-md-6 col-lg-3'>
+        <div class='col-sm-6 col-md-6 col-lg-3'>
             <div class='card' style='width: 15rem;'>
             <a href='product.php?pro_id=$pro_id'>
-            <img src='../admin/product_image/$pro_img1' class='card-img-top' alt='' width='222' height='222'>
+            <img src='admin/product_image/$pro_img1' class='card-img-top' alt='' width='222' height='222'>
             </a>
             <div class='card-body'>
             <a href='product.php?pro_id=$pro_id'>
@@ -44,7 +44,7 @@ function getCategory()
         $cat_name = $row_cat['cat_name'];
 
         echo "
-            <li> <a href='../shop.php?cat=$cat_id'> $cat_name </a></li>
+            <li> <a href='shop.php?cat=$cat_id'> $cat_name </a></li>
         ";
     }
 }
@@ -90,7 +90,7 @@ function product_per_category()
             $pro_img1 = $row_product['product_img1'];
 
             echo "
-            <div class='col-sm-12 col-md-6 col-lg-3'>
+            <div class='col-sm-6 col-md-6 col-lg-3'>
                 <div class='card' style='width: 15rem;'>
                     <a href='product.php?pro_id=$pro_id'>
                     <img src='admin/product_image/$pro_img1' class='card-img-top' alt='' width='222' height='222'>
@@ -116,18 +116,21 @@ function add_to_cart()
         $user = $_SESSION['username'];
         $p_id = $_GET['add_to_cart'];
         $quantity = $_POST['pro_quantity'];
-        $check_product = " select * from cart where p_id=$p_id ";
+        $check_product = " select * from cart where username='$user' and p_id=$p_id";
         $run_check = mysqli_query($db, $check_product);
 
         if (mysqli_num_rows($run_check) > 0) {
 
             echo "<script>alert(Already in cart!)</script>";
-            echo "<script>window.open('product.php?pro_id=$p_id','_self')</script>";
+            echo "<script>window.open('shop.php','_self')</script>";
         } else {
 
             $query = "insert into cart (username,p_id,quantity) values ('$user',' $p_id ',' $quantity ')";
             $run_query = mysqli_query($db, $query);
-            echo "<script>window.open(' product.php?pro_id=$p_id ',' _self ')</script>";
+            if ($run_query) {
+                echo "<script>alert('Added to cart!')</script>";
+            }
+            echo "<script>window.open(' cart.php',' _self ')</script>";
         }
     }
 }
@@ -143,12 +146,4 @@ function cart_items()
         $count_items = mysqli_num_rows($run_items);
         echo $count_items;
     }
-}
-
-function send_mail($email)
-{
-    $subject = "Welcome to our website";
-    $message = "Thank you for registering on our website. We're glad to have you as a customer";
-
-    mail($email, $subject, $message);
 }

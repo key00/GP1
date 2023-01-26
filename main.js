@@ -146,7 +146,10 @@ let phoneInput = document.getElementById("phone_number");
 phoneInput.addEventListener("input", function () {
   let phoneNumber = phoneInput.value.replace(/[^\d]/g, "");
   formattedNumber = phoneNumber.slice(0, 10);
-  formattedNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+  formattedNumber = formattedNumber.replace(
+    /(\d{3})(\d{3})(\d{4})/,
+    "($1) $2-$3"
+  );
   phoneInput.value = formattedNumber;
 });
 const iti = window.intlTelInput(phoneInput, {

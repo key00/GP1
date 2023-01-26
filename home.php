@@ -25,28 +25,28 @@ include("includes/header.php"); ?>
 <div class="container categories">
   <h3 class="titles">Our categories</h3>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-6">
       <div class="cat-box">
         <h4 class="cat-title">Apparel</h4>
         <p class="text-center">Find your finest apparel, for every season</p>
         <center><a href="shop.php?cat=1" class="btn btn-primary"> Browse</a></center>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-6">
       <div class="cat-box">
         <h4 class="cat-title">Shoes</h4>
         <p class="text-center">For everystyle you want, from sneakers to high heels</p>
         <center><a href="shop.php?cat=2" class="btn btn-primary"> Browse</a></center>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-6">
       <div class="cat-box">
         <h4 class="cat-title">Accessories</h4>
         <p class="text-center">Find everything you need to accessorize your outfits</p>
         <center><a href="shop.php?cat=3" class="btn btn-primary"> Browse</a></center>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-6">
       <div class="cat-box">
         <h4 class="cat-title">Cosmetics</h4>
         <p class="text-center">From cleanser to foundation, we've got you covered</p>

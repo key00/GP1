@@ -80,12 +80,12 @@ include("includes/db.php");
                     $total_pages = ceil($total_records / $per_page);
                     echo "<li class='page-item'><a href='shop.php?page=1' class='page-link'>" . 'First' . "</a></li>";
                     for ($i = 1; $i <= $total_pages; $i++) {
-                        // showing other pages
                         echo "<li class='page-item'><a href='shop.php?page=$i' class='page-link'>$i</a></li>";
                     };
                     echo "<li class='page-item'><a href='shop.php?page=$total_pages' class='page-link'>" . 'Last' . "</a></li>";
                 }
             ?>
+
             </ul>
 
         </div>

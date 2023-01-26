@@ -19,6 +19,11 @@ nav {
   margin-right: 1.25rem;
 }
 
+.navbar-collapse.collapse.show {
+  background-color: #fff;
+  padding: 0.625rem;
+}
+
 .navbar-brand {
   font-weight: 700;
 }
@@ -84,6 +89,14 @@ nav {
 footer .row {
   margin: 0;
 }
+
+@media screen and (max-width: 480px) {
+  .footer-row div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .quick-links {
   list-style: none;
   padding-left: 0;
@@ -114,6 +127,7 @@ footer .row {
 .card {
   padding: 8px;
   margin: 5px auto;
+  max-height: 366px;
 }
 .titles {
   text-transform: uppercase;
@@ -133,11 +147,41 @@ footer .row {
       rgba(255, 255, 255, 0.2),
       rgba(255, 255, 255, 0.2)
     ),
-    url("../images/1670496936009.png");
+    url("images/1670496936009.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
+.breadcrumb-item.active {
+  color: white;
+}
+.breadcrumb-item {
+  font-weight: 600;
+}
 
+@media screen and (max-width: 700px) {
+  .breadcrumb_style {
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    text-transform: uppercase;
+    font-size: 20px;
+    width: 100%;
+    height: 6.25rem;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.596),
+        rgba(255, 255, 255, 0.63)
+      ),
+      url("images/1670496936009.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .breadcrumb-item.active {
+    color: #48b88b;
+  }
+  .breadcrumb-item {
+    font-weight: 700;
+  }
+}
 .shop {
   margin: 1.25rem;
   padding: 1rem;
@@ -173,12 +217,7 @@ a:hover {
 .end-table {
   text-align: end;
 }
-.breadcrumb-item.active {
-  color: white;
-}
-.breadcrumb-item {
-  font-weight: 600;
-}
+
 form input.form-control {
   border: 2px solid #b3ffe1;
 }
@@ -227,9 +266,6 @@ form {
 .active-session {
   display: none;
 }
-/* footer .row > * {
-   width: auto; 
-} */
 
 .btn-primary {
   color: white;

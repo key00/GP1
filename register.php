@@ -68,7 +68,7 @@ include("includes/db.php");
       <div class="col-md-6">
         <label for="address"> City </label>
         <select class="form-select" name="city" id="city" required>
-          <option value="0">select country first</option>
+          <option value="0" disabled>select country first</option>
         </select>
       </div>
     </div>
@@ -119,8 +119,8 @@ if (isset($_POST['register'])) {
   $run_user = mysqli_query($con, $insert_user);
 
   $to = $_POST['email'];
-  $subject = "Registration Complete";
-  $message = "Thank you for registering on our website. \n \n Your username: $username \n Your password: $upassword";
+  $subject = "Welcome to WE-SHOP : Registration Complete";
+  $message = "Thank you for registering on our website. We're glad to have you as a customer. \n \n Your username: $username \n Your password: $upassword";
 
   mail($to, $subject, $message);
 
